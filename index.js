@@ -3,7 +3,8 @@ const cors = require('cors')
 const app = express()
 const PORT = process.env.PORT || 3001
 
-
+//serve react files..index.html
+app.use(express.static('dist'))
 
 var bodyParser = require('body-parser')
 // parse application/x-www-form-urlencoded
