@@ -14,6 +14,17 @@ app.use(bodyParser.json())
 //cors support
 app.use(cors())
 
+////// mongo db 
+const mongoose = require('mongoose')
+mongoose.set('strictQuery', false)
+const url =
+    "mongodb+srv://fullstack:fullstack@cluster0.o1opl.mongodb.net/?retryWrites=true&w=majority"
+mongoose.connect(url)
+const noteSchema = new mongoose.Schema({
+    content: String,
+    important: Boolean
+})
+const Note = mongoose.model('Note', noteSchema)
 
 let notes = [{
     id: 1,
